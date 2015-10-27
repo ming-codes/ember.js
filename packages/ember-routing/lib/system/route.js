@@ -1175,10 +1175,10 @@ var Route = EmberObject.extend(ActionHandler, Evented, {
 
     // Assign the route's controller so that it can more easily be
     // referenced in action handlers. Side effects. Side effects everywhere.
-    if (!this.controller) {
+    if (!this.get('controller')) {
       var propNames = get(this, '_qp.propertyNames');
       addQueryParamsObservers(controller, propNames);
-      this.controller = controller;
+      this.set('controller', controller);
     }
 
     var queryParams = get(this, '_qp');
